@@ -16,6 +16,9 @@ public class Event {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "date")
+    private String date;
+
     @Column(name = "time")
     private String time;
 
@@ -34,17 +37,26 @@ public class Event {
 
     public Event() {}
 
-    public Event(String title, String time, String duration, String description, Location location) {
+    public Event(String title, String time, String duration, String description, Location location, String date) {
         this.title = title;
         this.time = time;
         this.duration = duration;
         this.description = description;
         this.location = location;
+        this.date = date;
         this.signUpList = new ArrayList<>();
     }
 
     public Long getId() {
         return id;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public void setId(Long id) {
