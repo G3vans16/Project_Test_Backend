@@ -16,18 +16,18 @@ public class Country {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "user_list")
+    @OneToMany(mappedBy = "country")
     private List<User> userList;
 
-    @OneToMany(mappedBy = "country_list")
-    private List<Country> countryList;
+    @OneToMany(mappedBy = "country")
+    private List<Location> locationList;
 
     public Country() {}
 
     public Country(String name) {
         this.name = name;
         this.userList = new ArrayList<>();
-        this.countryList = new ArrayList<>();
+        this.locationList = new ArrayList<>();
     }
 
     public Long getId() {
@@ -54,11 +54,11 @@ public class Country {
         this.userList = userList;
     }
 
-    public List<Country> getCountryList() {
-        return countryList;
+    public List<Location> getLocationList() {
+        return locationList;
     }
 
-    public void setCountryList(List<Country> countryList) {
-        this.countryList = countryList;
+    public void setLocationList(List<Location> locationList) {
+        this.locationList = locationList;
     }
 }

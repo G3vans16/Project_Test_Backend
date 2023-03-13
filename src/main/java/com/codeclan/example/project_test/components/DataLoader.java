@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 
 @Profile("!test") //Run every time EXCEPT Tests
-@Component
+//@Component
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
@@ -26,6 +26,7 @@ public class DataLoader implements ApplicationRunner {
 
     public DataLoader() {}
 
+    @Override
     public void run(ApplicationArguments args) {
 
         // Countries
@@ -38,7 +39,7 @@ public class DataLoader implements ApplicationRunner {
         Country egypt = new Country("Egypt");
         countryRepository.save(egypt);
 
-        // Locations
+//      Locations
         Location edinburgh = new Location("Edinburgh", scotland);
         locationRepository.save(edinburgh);
 
@@ -52,13 +53,13 @@ public class DataLoader implements ApplicationRunner {
         User user1 = new User("Johnny Sweden", "sweden.png", "Gothernberg", scotland, 37, munich);
         userRepository.save(user1);
 
-        User user2 = new User("Ben Barlow", "bigben.png", "Paisley", scotland, 37, munich);
+        User user2 = new User("Ben Barlow", "bigben.png", "Paisley", scotland, 40, munich);
         userRepository.save(user2);
 
-        User user3 = new User("Maggie Amin", "jamanji.png", "Pyramid City", egypt, 37, edinburgh);
+        User user3 = new User("Maggie Amin", "jamanji.png", "Pyramid City", egypt, 28, edinburgh);
         userRepository.save(user3);
 
-        User user4 = new User("Gareth Evans", "sheep.png", "Aberdeen", scotland, 37, berlin);
+        User user4 = new User("Gareth Evans", "sheep.png", "Aberdeen", scotland, 30, berlin);
         userRepository.save(user4);
 
         // Events
@@ -92,7 +93,6 @@ public class DataLoader implements ApplicationRunner {
 
         SignUp signUp6 = new SignUp(user4, event4);
         signUpRepository.save(signUp6);
-
     }
 
 }

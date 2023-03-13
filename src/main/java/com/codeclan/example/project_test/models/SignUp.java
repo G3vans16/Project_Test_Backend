@@ -12,17 +12,17 @@ public class SignUp {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user")
-    private User user;
+    @JoinColumn(name = "user_profile", nullable = false)
+    private User userProfile;
 
     @ManyToOne
-    @JoinColumn(name = "event")
+    @JoinColumn(name = "event", nullable = false)
     private Event event;
 
     public SignUp() {}
 
     public SignUp(User user, Event event) {
-        this.user = user;
+        this.userProfile = user;
         this.event = event;
     }
 
@@ -34,12 +34,12 @@ public class SignUp {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public User getUserProfile() {
+        return userProfile;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserProfile(User userProfile) {
+        this.userProfile = userProfile;
     }
 
     public Event getEvent() {

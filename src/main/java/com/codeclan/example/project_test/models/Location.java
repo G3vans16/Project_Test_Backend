@@ -16,13 +16,14 @@ public class Location {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "country")
+    @ManyToOne
+    @JoinColumn(name = "country")
     private Country country;
 
-    @OneToMany(mappedBy = "event_list")
+    @OneToMany(mappedBy = "location")
     private List<Event> eventList;
 
-    @OneToMany(mappedBy = "user_list")
+    @OneToMany(mappedBy = "location")
     private List<User> userList;
 
     public Location() {}

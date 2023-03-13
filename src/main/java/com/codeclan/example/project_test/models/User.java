@@ -22,13 +22,14 @@ public class User {
     @Column(name = "home_town")
     private String homeTown;
 
-    @Column(name = "nationality")
-    private Country nationality;
+    @ManyToOne
+    @JoinColumn(name = "country")
+    private Country country;
 
     @Column(name = "age")
     private int age;
 
-    @OneToMany(mappedBy = "sign_up_list")
+    @OneToMany(mappedBy = "userProfile")
     private List<SignUp> signUpList;
 
     @ManyToOne
@@ -37,11 +38,11 @@ public class User {
 
     public User() {}
 
-    public User(String displayName, String avatarUrl, String homeTown, Country nationality, int age, Location location) {
+    public User(String displayName, String avatarUrl, String homeTown, Country country, int age, Location location) {
         this.displayName = displayName;
         this.avatarUrl = avatarUrl;
         this.homeTown = homeTown;
-        this.nationality = nationality;
+        this.country = country;
         this.age = age;
         this.signUpList = new ArrayList<>();
         this.location = location;
@@ -79,12 +80,12 @@ public class User {
         this.homeTown = homeTown;
     }
 
-    public Country getNationality() {
-        return nationality;
+    public Country getCountry() {
+        return country;
     }
 
-    public void setNationality(Country nationality) {
-        this.nationality = nationality;
+    public void setCountry(Country country) {
+        this.country = country;
     }
 
     public int getAge() {

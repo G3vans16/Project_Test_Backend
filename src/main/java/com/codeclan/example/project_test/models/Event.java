@@ -32,7 +32,7 @@ public class Event {
     @JoinColumn(name = "location")
     private Location location;
 
-    @OneToMany(mappedBy = "sign_up_list")
+    @OneToMany(mappedBy = "event")
     private List<SignUp> signUpList;
 
     public Event() {}
