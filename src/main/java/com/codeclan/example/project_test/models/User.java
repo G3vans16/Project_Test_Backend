@@ -1,5 +1,8 @@
 package com.codeclan.example.project_test.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +25,7 @@ public class User {
     @Column(name = "home_town")
     private String homeTown;
 
+//    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "country")
     private Country country;
@@ -29,6 +33,7 @@ public class User {
     @Column(name = "age")
     private int age;
 
+//    @JsonBackReference
     @OneToMany(mappedBy = "userProfile")
     private List<SignUp> signUpList;
 

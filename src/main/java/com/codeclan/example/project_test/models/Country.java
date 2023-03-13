@@ -1,5 +1,7 @@
 package com.codeclan.example.project_test.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +18,11 @@ public class Country {
     @Column(name = "name")
     private String name;
 
+//    @JsonIgnoreProperties({"country"})
     @OneToMany(mappedBy = "country")
     private List<User> userList;
 
+//    @JsonIgnoreProperties({"country"})
     @OneToMany(mappedBy = "country")
     private List<Location> locationList;
 

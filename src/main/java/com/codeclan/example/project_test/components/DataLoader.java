@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 
 @Profile("!test") //Run every time EXCEPT Tests
-//@Component
+@Component
 public class DataLoader implements ApplicationRunner {
 
     @Autowired

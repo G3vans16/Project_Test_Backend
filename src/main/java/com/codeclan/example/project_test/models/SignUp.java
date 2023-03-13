@@ -1,5 +1,7 @@
 package com.codeclan.example.project_test.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,10 +13,12 @@ public class SignUp {
     @Column(name = "id")
     private Long id;
 
+//    @JsonIgnoreProperties({"signups"})
     @ManyToOne
     @JoinColumn(name = "user_profile", nullable = false)
     private User userProfile;
 
+//    @JsonIgnoreProperties({"signups"})
     @ManyToOne
     @JoinColumn(name = "event", nullable = false)
     private Event event;

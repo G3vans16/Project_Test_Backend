@@ -1,5 +1,8 @@
 package com.codeclan.example.project_test.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +20,16 @@ public class Location {
     private String name;
 
     @ManyToOne
+//    @JsonIgnoreProperties({"locations"})
+//    @JsonBackReference
     @JoinColumn(name = "country")
     private Country country;
 
+//    @JsonIgnoreProperties({"location"})
     @OneToMany(mappedBy = "location")
     private List<Event> eventList;
 
+//    @JsonIgnoreProperties({"location"})
     @OneToMany(mappedBy = "location")
     private List<User> userList;
 
