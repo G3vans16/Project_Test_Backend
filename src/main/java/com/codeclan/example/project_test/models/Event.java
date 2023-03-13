@@ -8,6 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "events")
+@JsonIgnoreProperties({"signUpList"})
 public class Event {
 
     @Id
@@ -31,7 +32,7 @@ public class Event {
     private String description;
 
     @ManyToOne
-    @JsonIgnoreProperties({"event"})
+//    @JsonIgnoreProperties({"event"})
     @JoinColumn(name = "location")
     private Location location;
 

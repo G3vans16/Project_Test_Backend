@@ -11,12 +11,10 @@ public class SignUp {
     @Column(name = "id")
     private Long id;
 
-//    @JsonIgnoreProperties({"signups"})
     @ManyToOne
     @JoinColumn(name = "user_profile", nullable = false)
     private UserProfile userProfile;
 
-//    @JsonIgnoreProperties({"signups"})
     @ManyToOne
     @JoinColumn(name = "event", nullable = false)
     private Event event;

@@ -9,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "locations")
+@JsonIgnoreProperties({"eventList", "userProfileList"})
 public class Location {
 
     @Id
@@ -27,13 +28,13 @@ public class Location {
 
 //    @JsonIgnoreProperties({"location", "event"})
 //    @JsonIgnoreProperties({"eventList"})
-    @JsonBackReference
+//    @JsonBackReference
     @OneToMany(mappedBy = "location")
     private List<Event> eventList;
 
 //    @JsonIgnoreProperties({"location", "userprofile"})
 //    @JsonIgnoreProperties({"userProfileList"})
-    @JsonBackReference
+//    @JsonBackReference
     @OneToMany(mappedBy = "location")
     private List<UserProfile> userProfileList;
 
