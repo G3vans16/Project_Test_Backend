@@ -31,6 +31,7 @@ public class Event {
     private String description;
 
     @ManyToOne
+    @JsonIgnoreProperties({"event"})
     @JoinColumn(name = "location")
     private Location location;
 
