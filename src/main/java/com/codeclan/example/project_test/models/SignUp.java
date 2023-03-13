@@ -1,7 +1,5 @@
 package com.codeclan.example.project_test.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 
 @Entity
@@ -16,7 +14,7 @@ public class SignUp {
 //    @JsonIgnoreProperties({"signups"})
     @ManyToOne
     @JoinColumn(name = "user_profile", nullable = false)
-    private User userProfile;
+    private UserProfile userProfile;
 
 //    @JsonIgnoreProperties({"signups"})
     @ManyToOne
@@ -25,7 +23,7 @@ public class SignUp {
 
     public SignUp() {}
 
-    public SignUp(User user, Event event) {
+    public SignUp(UserProfile user, Event event) {
         this.userProfile = user;
         this.event = event;
     }
@@ -38,11 +36,11 @@ public class SignUp {
         this.id = id;
     }
 
-    public User getUserProfile() {
+    public UserProfile getUserProfile() {
         return userProfile;
     }
 
-    public void setUserProfile(User userProfile) {
+    public void setUserProfile(UserProfile userProfile) {
         this.userProfile = userProfile;
     }
 

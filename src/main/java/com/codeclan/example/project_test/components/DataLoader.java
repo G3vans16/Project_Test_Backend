@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 
 @Profile("!test") //Run every time EXCEPT Tests
-@Component
+//@Component
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
@@ -22,7 +22,7 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     SignUpRepository signUpRepository;
     @Autowired
-    UserRepository userRepository;
+    UserProfileRepository userProfileRepository;
 
     public DataLoader() {}
 
@@ -50,17 +50,17 @@ public class DataLoader implements ApplicationRunner {
         locationRepository.save(munich);
 
         // Users
-        User user1 = new User("Johnny Sweden", "sweden.png", "Gothernberg", scotland, 37, munich);
-        userRepository.save(user1);
+        UserProfile user1 = new UserProfile("Johnny Sweden", "sweden.png", "Gothernberg", scotland, 37, munich);
+        userProfileRepository.save(user1);
 
-        User user2 = new User("Ben Barlow", "bigben.png", "Paisley", scotland, 40, munich);
-        userRepository.save(user2);
+        UserProfile user2 = new UserProfile("Ben Barlow", "bigben.png", "Paisley", scotland, 40, munich);
+        userProfileRepository.save(user2);
 
-        User user3 = new User("Maggie Amin", "jamanji.png", "Pyramid City", egypt, 28, edinburgh);
-        userRepository.save(user3);
+        UserProfile user3 = new UserProfile("Maggie Amin", "jamanji.png", "Pyramid City", egypt, 28, edinburgh);
+        userProfileRepository.save(user3);
 
-        User user4 = new User("Gareth Evans", "sheep.png", "Aberdeen", scotland, 30, berlin);
-        userRepository.save(user4);
+        UserProfile user4 = new UserProfile("Gareth Evans", "sheep.png", "Aberdeen", scotland, 30, berlin);
+        userProfileRepository.save(user4);
 
         // Events
         Event event1 = new Event("Oktoberfest", "17:00", "5 hours", "World famous beer festival", munich, "17-03-2023");

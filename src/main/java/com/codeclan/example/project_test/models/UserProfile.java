@@ -1,15 +1,12 @@
 package com.codeclan.example.project_test.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "user_profiles")
+public class UserProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,9 +38,9 @@ public class User {
     @JoinColumn(name = "location")
     private Location location;
 
-    public User() {}
+    public UserProfile() {}
 
-    public User(String displayName, String avatarUrl, String homeTown, Country country, int age, Location location) {
+    public UserProfile(String displayName, String avatarUrl, String homeTown, Country country, int age, Location location) {
         this.displayName = displayName;
         this.avatarUrl = avatarUrl;
         this.homeTown = homeTown;

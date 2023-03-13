@@ -1,7 +1,5 @@
 package com.codeclan.example.project_test.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +18,7 @@ public class Country {
 
 //    @JsonIgnoreProperties({"country"})
     @OneToMany(mappedBy = "country")
-    private List<User> userList;
+    private List<UserProfile> userProfileList;
 
 //    @JsonIgnoreProperties({"country"})
     @OneToMany(mappedBy = "country")
@@ -30,7 +28,7 @@ public class Country {
 
     public Country(String name) {
         this.name = name;
-        this.userList = new ArrayList<>();
+        this.userProfileList = new ArrayList<>();
         this.locationList = new ArrayList<>();
     }
 
@@ -50,12 +48,12 @@ public class Country {
         this.name = name;
     }
 
-    public List<User> getUserList() {
-        return userList;
+    public List<UserProfile> getUserProfileList() {
+        return userProfileList;
     }
 
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
+    public void setUserProfileList(List<UserProfile> userProfileList) {
+        this.userProfileList = userProfileList;
     }
 
     public List<Location> getLocationList() {

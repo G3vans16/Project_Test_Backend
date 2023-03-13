@@ -1,8 +1,5 @@
 package com.codeclan.example.project_test.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +28,7 @@ public class Location {
 
 //    @JsonIgnoreProperties({"location"})
     @OneToMany(mappedBy = "location")
-    private List<User> userList;
+    private List<UserProfile> userProfileList;
 
     public Location() {}
 
@@ -39,7 +36,7 @@ public class Location {
         this.name = name;
         this.country = country;
         this.eventList = new ArrayList<>();
-        this.userList = new ArrayList<>();
+        this.userProfileList = new ArrayList<>();
     }
 
     public Long getId() {
@@ -50,12 +47,12 @@ public class Location {
         this.country = country;
     }
 
-    public List<User> getUserList() {
-        return userList;
+    public List<UserProfile> getUserProfileList() {
+        return userProfileList;
     }
 
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
+    public void setUserProfileList(List<UserProfile> userProfileList) {
+        this.userProfileList = userProfileList;
     }
 
     public void setId(Long id) {
